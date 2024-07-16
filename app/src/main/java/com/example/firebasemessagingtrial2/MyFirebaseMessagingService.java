@@ -28,8 +28,18 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 break;
             case "speak":
                 String speakMessage = data.get("message");
-                int desiredVolume = Integer.parseInt(data.get("desiredVolume"));
+                int desiredVolume = 2;
+                if (data.get("desiredVolume") != null && !data.get("desiredVolume").isEmpty()) {
+                    desiredVolume = Integer.parseInt(data.get("desiredVolume"));
+                }
                 new SpeakAction(this).execute(speakMessage, desiredVolume);
+                break;
+            case "vibrate":
+                int duration = 1000;
+                if (data.get("duration") != null && !data.get("duration").isEmpty()) {
+                    duration = Integer.parseInt(data.get("duration"));
+                }
+                new VibrateAction(this).execute(duration);
                 break;
             default:
                 Log.d("FCM", "Unknown action: " + action);
