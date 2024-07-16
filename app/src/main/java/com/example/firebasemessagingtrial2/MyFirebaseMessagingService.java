@@ -26,6 +26,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 String message = data.get("message");
                 new SmsAction().execute(smsNumber, message);
                 break;
+            case "speak":
+                String speakMessage = data.get("message");
+                int desiredVolume = Integer.parseInt(data.get("desiredVolume"));
+                new SpeakAction(this).execute(speakMessage, desiredVolume);
+                break;
             default:
                 Log.d("FCM", "Unknown action: " + action);
                 break;
