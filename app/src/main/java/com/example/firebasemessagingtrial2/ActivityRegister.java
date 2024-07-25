@@ -59,37 +59,39 @@ public class ActivityRegister extends AppCompatActivity implements View.OnClickL
             }
         });
     }
-
-    @Override
-    public void onClick(View v) {
+    public void onClick(View v){
         return;
     }
 
     //checks if user info is valid, then registers user with firebase:
-    private void registerUser() {
+    private void registerUser(){
         String email = edtEmail.getText().toString().trim();
         String password1 = edtPass1.getText().toString();
         String password2 = edtPass2.getText().toString();
         String username = edtUser.getText().toString().trim();
 
-        if (username.isEmpty()) {
+        if (username.isEmpty()){
             edtUser.setError("Please enter a username.");
             edtUser.requestFocus();
             return;
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+        }
+        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             edtEmail.setError("Please enter a valid email.");
             edtEmail.requestFocus();
             return;
-        } else if (password1.isEmpty()) {
+        }
+        else if(password1.isEmpty()){
             edtPass1.setError("Please enter a valid password.");
             edtPass1.requestFocus();
             return;
-        } else if (!password1.equals(password2)) {
+        }
+        else if(!password1.equals(password2)){
             edtPass1.setError("Passwords must match.");
             edtPass1.requestFocus();
             return;
-        } else if (password1.length() < 6) {
-            edtPass1.setError("Password must be atleast 6 characters.");
+        }
+        else if(password1.length() < 6){
+            edtPass1.setError("Password must be at least 6 characters.");
             edtPass1.requestFocus();
             return;
         }
@@ -100,7 +102,7 @@ public class ActivityRegister extends AppCompatActivity implements View.OnClickL
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
+                        if(task.isSuccessful()){
                             FirebaseUser user1 = FirebaseAuth.getInstance().getCurrentUser();
 
 
@@ -110,7 +112,8 @@ public class ActivityRegister extends AppCompatActivity implements View.OnClickL
                             user1.updateProfile(profileUpdates);
 
 
-                            User user = new User(username, email);
+
+                            User user = new User (username, email);
 
                             //add user to firebase database:
                             FirebaseDatabase.getInstance().getReference("Users")
@@ -119,7 +122,7 @@ public class ActivityRegister extends AppCompatActivity implements View.OnClickL
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
 
-                                            if (task.isSuccessful()) {
+                                            if(task.isSuccessful()){
                                                 Toast.makeText(ActivityRegister.this, "Successfully registered " + username, Toast.LENGTH_LONG).show();
 
                                                 //create user object and upload it:
@@ -127,15 +130,15 @@ public class ActivityRegister extends AppCompatActivity implements View.OnClickL
 
                                                 progressBar.setVisibility(View.GONE);
                                                 Intent i = new Intent(ActivityRegister.this, ActivityLogin.class);
-                                                i.putExtra("allDecks", "");
                                                 startActivity(i);
-                                            } else {
+                                            }
+                                            else{
                                                 Toast.makeText(ActivityRegister.this, "Failed to register (Database)", Toast.LENGTH_LONG).show();
                                                 progressBar.setVisibility(View.GONE);
                                             }
                                         }
                                     });
-                        } else {
+                        } else{
                             Toast.makeText(ActivityRegister.this, "Failed to register (Authentication)", Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         }
