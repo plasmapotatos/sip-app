@@ -3,7 +3,7 @@ package com.example.firebasemessagingtrial2;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 /*
-    User class stores all of the user's information.
+    User class stores all of the user's information
  */
 public class User {
     public String username, email;
