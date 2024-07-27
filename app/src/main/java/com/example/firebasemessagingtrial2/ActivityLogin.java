@@ -42,7 +42,10 @@ public class ActivityLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) ConstraintLayout constraintLayout = findViewById(R.id.ConstraintLayout20);
-
+        AnimationDrawable animationDrawable = (AnimationDrawable) constraintLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(2000);
+        animationDrawable.setExitFadeDuration(2000);
+        animationDrawable.start();
 
         edtEmail = (TextInputEditText) findViewById(R.id.edtLoginEmail);
         edtPassword = (TextInputEditText) findViewById(R.id.edtPass);

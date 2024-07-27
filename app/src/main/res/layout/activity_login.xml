@@ -5,6 +5,7 @@
     android:id="@+id/ConstraintLayout20"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_list"
     tools:context=".ActivityLogin">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -24,6 +25,7 @@
             android:layout_height="match_parent"
             android:hint="Email"
             android:inputType="textEmailAddress"
+            android:textColor="#033C37"
             tools:ignore="TouchTargetSizeCheck" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -35,6 +37,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginEnd="75dp"
         android:text="Login"
+        android:textColorLink="#0FFAF9F9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +53,7 @@
         android:text="Senior Agent"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#033C37"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,6 +67,7 @@
         android:layout_marginTop="30dp"
         android:text="Guest"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#033C37"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
@@ -75,6 +80,7 @@
         android:text="Signup"
         android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#033C37"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
@@ -95,7 +101,7 @@
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword"
-            android:textColor="#020202"
+            android:textColor="#033C37"
             android:textColorHint="#0B0A0A" />
     </com.google.android.material.textfield.TextInputLayout>
 
