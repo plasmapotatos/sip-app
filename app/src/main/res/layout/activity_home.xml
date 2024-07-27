@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradient_list"
     tools:context=".HomeActivity">
 
 
@@ -34,7 +35,8 @@
             android:layout_height="wrap_content"
             android:digits="0123456789"
             android:inputType="phone"
-            android:maxLength="10" />
+            android:maxLength="10"
+            android:textColor="@color/DarkTurquoise" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
